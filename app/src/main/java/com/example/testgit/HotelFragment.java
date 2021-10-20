@@ -29,7 +29,7 @@ public class HotelFragment extends Fragment {
        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvData);
        listData = new ArrayList<>();
        for (int i=0;i<10;i++){
-           listData.add("Hotel ke-1");
+           listData.add("Hotel ke-"+i);
        }
 
        linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
