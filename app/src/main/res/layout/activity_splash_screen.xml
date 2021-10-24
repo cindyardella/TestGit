@@ -14,5 +14,5 @@
         android:layout_centerVertical="true"
         android:backgroundTint="@color/white"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_apartement" />
+        android:src="@drawable/logo" />
 </RelativeLayout>
