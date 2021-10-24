@@ -11,14 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HotelFragment extends Fragment {
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     AdapterData adapterData;
-    List<String> listData;
+    //ArrayList<Model> models;
 
 
     @Nullable
@@ -27,18 +27,43 @@ public class HotelFragment extends Fragment {
         View view = inflater.inflate(R.layout.hotel_fragment, container, false);
 
        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvData);
-       listData = new ArrayList<>();
-       for (int i=0;i<10;i++){
-           listData.add("Hotel ke-"+i);
-       }
 
        linearLayoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
        recyclerView.setLayoutManager(linearLayoutManager);
 
-       adapterData = new AdapterData(this.getContext(), listData);
+       adapterData = new AdapterData(this.getContext(), getMyList());
        recyclerView.setAdapter(adapterData);
        adapterData.notifyDataSetChanged();
 
        return view;
+    }
+    private ArrayList<Model> getMyList(){
+        ArrayList<Model> models = new ArrayList<>();
+
+        Model m  = new Model();
+        m.setNama("Hotel Harper");
+        m.setGambar(R.drawable.hotel_harper);
+        models.add(m);
+
+        m = new Model();
+        m.setNama("Hotel 1");
+        m.setGambar(R.drawable.hotel_harper);
+        models.add(m);
+
+        m = new Model();
+        m.setNama("Hotel 2");
+        m.setGambar(R.drawable.hotel_harper);
+        models.add(m);
+
+        m = new Model();
+        m.setNama("Hotel 3");
+        m.setGambar(R.drawable.hotel_harper);
+        models.add(m);
+
+        m = new Model();
+        m.setNama("Hotel 4");
+        m.setGambar(R.drawable.hotel_harper);
+        models.add(m);
+        return models;
     }
 }

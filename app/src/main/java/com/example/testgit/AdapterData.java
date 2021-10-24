@@ -4,18 +4,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
-    List<String> listData;
 
-    public AdapterData(Context context, List<String> listData) {
-        this.listData = listData;
+    ArrayList<Model> models;
+
+    public AdapterData(Context context, ArrayList<Model> models) {
+        this.models = models;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -30,21 +33,24 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        holder.txtData.setText(listData.get(position));
+        holder.mNama.setText(models.get(position).getNama());
+        holder.mImage.setImageResource(models.get(position).getGambar());
 
     }
 
     @Override
     public int getItemCount() {
-        return listData.size();
+        return models.size();
     }
 
     public class HolderData extends RecyclerView.ViewHolder{
-        TextView txtData;
+        TextView mNama;
+        ImageView mImage;
         public HolderData(@NonNull View itemView) {
             super(itemView);
 
-            txtData = itemView.findViewById(R.id.dataText);
+            mNama = itemView.findViewById(R.id.nama);
+            mImage = itemView.findViewById(R.id.image);
         }
     }
 }
