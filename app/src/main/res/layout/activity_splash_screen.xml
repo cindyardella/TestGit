@@ -15,4 +15,5 @@
         android:backgroundTint="@color/white"
         android:scaleType="centerCrop"
         android:src="@drawable/logo" />
+
 </RelativeLayout>

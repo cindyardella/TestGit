@@ -10,11 +10,11 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
+        android:background="#02255A"
         android:id="@+id/bottom_navigation_menu"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu"
-        app:itemIconTint="#ffff"/>
+        app:itemIconTint="#FBC02D" />
 
     <FrameLayout
         android:id="@+id/container_fragment"

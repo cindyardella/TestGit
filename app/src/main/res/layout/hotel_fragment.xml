@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".HotelFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:gravity="center"
+        android:shadowColor="#fff"
+        android:shadowRadius="10"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Hotel List"
+        android:textColor="#02255A"
+        android:textSize="40sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvData"
         android:layout_width="match_parent"

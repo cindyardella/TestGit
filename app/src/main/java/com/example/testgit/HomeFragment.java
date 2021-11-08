@@ -1,5 +1,6 @@
 package com.example.testgit;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,5 +22,6 @@ public class HomeFragment extends Fragment {
         AnimationDrawable animationDrawable = (AnimationDrawable) homeslide.getDrawable();
         animationDrawable.start();
         return rootView;
+
     }
 }
