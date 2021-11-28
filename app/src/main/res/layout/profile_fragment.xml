@@ -6,37 +6,29 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:gravity="center">
-
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_akunprofile" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="Username"
-        android:inputType="text"
-        />
-
+        android:inputType="text"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="Password"
-        android:inputType="textPassword" />
-
+        android:inputType="textPassword"/>
     <Button
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#02255A"
         android:text="submit" />
-
-
 </LinearLayout>
