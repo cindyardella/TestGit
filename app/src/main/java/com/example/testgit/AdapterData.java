@@ -1,11 +1,15 @@
 package com.example.testgit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,10 +20,11 @@ import java.util.List;
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     ArrayList<Model> models;
-
+    Context ctx;
     public AdapterData(Context context, ArrayList<Model> models) {
         this.models = models;
         this.inflater = LayoutInflater.from(context);
+        ctx=context;
     }
 
     LayoutInflater inflater;
@@ -33,9 +38,16 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        holder.mNama.setText(models.get(position).getNama());
-        holder.mImage.setImageResource(models.get(position).getGambar());
-
+        Model model = models.get(position);
+        holder.mNama.setText(model.getNama());
+        Glide.with(ctx)
+                .load(model.getGambar())
+                .into(holder.mImage);
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
     @Override
@@ -46,11 +58,12 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
     public class HolderData extends RecyclerView.ViewHolder{
         TextView mNama;
         ImageView mImage;
+        RelativeLayout container;
         public HolderData(@NonNull View itemView) {
             super(itemView);
-
             mNama = itemView.findViewById(R.id.nama);
             mImage = itemView.findViewById(R.id.image);
+            container = itemView.findViewById(R.id.data_container);
         }
     }
 }
