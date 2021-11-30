@@ -8,8 +8,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable
             ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
-        Button submit = view.findViewById(R.id.submit);         MainActivity act = (MainActivity) getActivity();         submit.setOnClickListener(v -> {
-            android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(requireContext());             alertDialogBuilder.setTitle("Login");             alertDialogBuilder
+        Button submit = view.findViewById(R.id.submit);         MainActivity act = (MainActivity) getActivity();
+        submit.setOnClickListener(v -> {
+            android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(requireContext());
+            alertDialogBuilder.setTitle("Login");
+            alertDialogBuilder
                     .setMessage("Login Successfull")
                     .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
@@ -17,7 +20,8 @@ public class ProfileFragment extends Fragment {
                             act.bottomNavigationView.setSelectedItemId(R.id.menu_home);
                         }
                     });
-            AlertDialog alertDialog = alertDialogBuilder.create();             alertDialog.show();
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         });
         return view;
     }

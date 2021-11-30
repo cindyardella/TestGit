@@ -46,6 +46,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ctx.startActivity(new Intent(ctx,DetailHotel.class).putExtra("id", model.getId()));
             }
         });
     }
