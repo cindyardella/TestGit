@@ -7,6 +7,14 @@
     tools:context=".MainActivity"
     android:background="#ffff">
 
+    <ImageView
+        android:id="@+id/homeslide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/anime_slide"
+        />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -5,24 +5,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment">
 
-    <ImageView
-        android:id="@+id/homeslide"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/anime_slide"
-        />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:shadowColor="#525555"
-        android:shadowRadius="10"
-        android:fontFamily="cursive"
-        android:text="Welcome To Purwakarta"
-        android:textColor="@color/white"
-        android:textSize="70sp" />
 </RelativeLayout>
