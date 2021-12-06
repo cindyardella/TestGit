@@ -39,14 +39,14 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
         Model model = models.get(position);
-        holder.mNama.setText(model.getNama());
+        holder.mNama.setText(model.getTitle());
         Glide.with(ctx)
-                .load(model.getGambar())
+                .load(model.getImage())
                 .into(holder.mImage);
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ctx.startActivity(new Intent(ctx,DetailHotel.class).putExtra("id", model.getId()));
+                ctx.startActivity(new Intent(ctx,DetailHotel.class).putExtra("mal_id",model.getId()));
             }
         });
     }

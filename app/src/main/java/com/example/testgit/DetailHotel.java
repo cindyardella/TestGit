@@ -1,4 +1,4 @@
-package com.example.testgit;
+ package com.example.testgit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,20 +26,26 @@ public class DetailHotel extends AppCompatActivity {
         setContentView(R.layout.activity_detail_hotel);
         ImageView img = findViewById(R.id.fotoDetail);
         TextView info = findViewById(R.id.infoDetail);
-        final String url = "https://dev.farizdotid.com/api/purwakarta/hotel/"+getIntent().getExtras().getInt("id");
+        final String url1 = "https://api.jikan.moe/v3/search/anime?q=doraemon"+getIntent().getExtras().getInt("mal_id");
         RequestQueue requestQueue = Volley.newRequestQueue(this);;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url1, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     String information = "";
                     Glide.with(getBaseContext())
-                            .load(response.getString("gambar_url"))
+                            .load(response.getString("image_url"))
                             .into(img);
-                    information+="Nama : "+response.getString("nama")+
-                            "\nAlamat : "+response.getString("alamat")+
-                            "\nNotelp : "+response.getString("nomor_telp")+
-                            "\nKoordinat : "+response.getString("kordinat");
+                    information+="Title : "+response.getString("title")+
+                            "\nAiring : "+response.getBoolean("airing")+
+                            "\nSynopsis : "+response.getString("synopsis")+
+                            "\nType : "+response.getString("type")+
+                            "\nEpisodes : "+response.getInt("episodes")+
+                            "\nScore : "+response.getInt("score")+
+                            "\nStart Date : "+response.getString("start_date")+
+                            "\nEnd Date : "+response.getString("end_date")+
+                            "\nMembers : "+response.getInt("members")+
+                            "\nrated : "+response.getString("rated");
                     info.setText(information);
                 } catch (Exception w) {
                     Toast.makeText(getBaseContext(), w.getMessage(), Toast.LENGTH_LONG).show();

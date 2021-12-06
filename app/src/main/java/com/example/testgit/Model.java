@@ -2,37 +2,37 @@ package com.example.testgit;
 
 public class Model {
 
-    Model(int id,String nama, String gambar_url){
-        this.id = id;
-        this.nama = nama;
-        this.gambar_url = gambar_url;
+    Model(int mal_id,String title, String image_url){
+        this.mal_id = mal_id;
+        this.title = title;
+        this.image_url = image_url;
     }
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getTitle() {
+        return title;
     }
 
-    public String getGambar() {
-        return gambar_url;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setGambar(String gambar) {
-        this.gambar_url = gambar;
+    public String getImage() {
+        return image_url;
+    }
+
+    public void setImage(String image) {
+        this.image_url = image;
     }
 
     public int getId() {
-        return id;
+        return mal_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.mal_id = id;
     }
 
-    private int id;
-    private String nama;
-    private String gambar_url;
+    private int mal_id;
+    private String title;
+    private String image_url;
 
 }

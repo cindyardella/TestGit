@@ -7,6 +7,8 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#193BFF"
+    app:layout_constraintCircleRadius="@dimen/cardview_default_radius"
     >
 
     <RelativeLayout
@@ -14,8 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:layout_marginBottom="5dp"
-        android:background="#E1F1E6CA">
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:id="@+id/image"
@@ -27,9 +28,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/nama"
             android:text="nama"
-            android:fontFamily="sans-serif-light"
-            android:textSize="18sp"
-            android:textColor="#000"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:textColor="#fff"
             android:layout_toRightOf="@id/image"
             android:layout_toEndOf="@+id/image"
             android:layout_marginLeft="10dp"

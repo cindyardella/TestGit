@@ -32,7 +32,7 @@ public class HotelFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     AdapterData adapterData;
     ArrayList<Model> models = new ArrayList<>();
-    final String url = "https://dev.farizdotid.com/api/purwakarta/hotel";
+    final String url = "https://api.jikan.moe/v3/search/anime?q=doraemon";
     RequestQueue requestQueue;
     @Nullable
     @Override
@@ -55,13 +55,13 @@ public class HotelFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray hotel = (JSONArray) response.get("hotel");
-                    for(int i=0;i<hotel.length();i++) {
-                        JSONObject jsonObject = hotel.getJSONObject(i);
-                        String nama = jsonObject.getString("nama");
-                        String gambar_url = jsonObject.getString("gambar_url");
-                        int id = jsonObject.getInt("id");
-                        models.add(new Model(id, nama, gambar_url));
+                    JSONArray results = (JSONArray) response.get("results");
+                    for(int i=0;i<results.length();i++) {
+                        JSONObject jsonObject = results.getJSONObject(i);
+                        String title = jsonObject.getString("title");
+                        String image_url = jsonObject.getString("image_url");
+                        int mal_id = jsonObject.getInt("mal_id");
+                        models.add(new Model(mal_id, title, image_url));
                     }
                     adapterData.notifyDataSetChanged();
                 } catch (Exception w) {
