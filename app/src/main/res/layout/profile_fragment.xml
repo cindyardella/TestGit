@@ -17,14 +17,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Username"
-        android:inputType="text"/>
+        android:foreground="@color/black"
+        android:foregroundGravity="top"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+        android:hint="  Username"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="false" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+        android:foreground="@color/white"
+        android:foregroundGravity="bottom"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+        android:hint="  Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
