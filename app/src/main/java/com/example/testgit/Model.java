@@ -1,38 +1,46 @@
 package com.example.testgit;
 
+import com.bumptech.glide.Glide;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Model {
+    @PrimaryKey
+    public int mal_id;
 
-    Model(int mal_id,String title, String image_url){
-        this.mal_id = mal_id;
-        this.title = title;
-        this.image_url = image_url;
-    }
-    public String getTitle() {
-        return title;
-    }
+    @ColumnInfo(name = "title")
+    public String title;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @ColumnInfo(name = "image_url")
+    public String image_url;
 
-    public String getImage() {
-        return image_url;
-    }
+    @ColumnInfo(name = "airing")
+    public boolean airing;
 
-    public void setImage(String image) {
-        this.image_url = image;
-    }
+    @ColumnInfo(name = "synopsis")
+    public String synopsis;
 
-    public int getId() {
-        return mal_id;
-    }
+    @ColumnInfo(name = "type")
+    public String type;
 
-    public void setId(int id) {
-        this.mal_id = id;
-    }
+    @ColumnInfo(name = "episodes")
+    public int episodes;
 
-    private int mal_id;
-    private String title;
-    private String image_url;
+    @ColumnInfo(name = "score")
+    public int score;
 
+    @ColumnInfo(name = "start_date")
+    public String start_date;
+
+    @ColumnInfo(name = "end_date")
+    public String end_date;
+
+    @ColumnInfo(name = "members")
+    public int members;
+
+    @ColumnInfo(name = "rated")
+    public String rated;
 }

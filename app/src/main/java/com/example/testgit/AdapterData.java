@@ -10,12 +10,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.testgit.Model;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
@@ -39,14 +39,14 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
         Model model = models.get(position);
-        holder.mNama.setText(model.getTitle());
+        holder.mNama.setText(model.title);
         Glide.with(ctx)
-                .load(model.getImage())
+                .load(model.image_url)
                 .into(holder.mImage);
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ctx.startActivity(new Intent(ctx,DetailHotel.class).putExtra("mal_id",model.getId()));
+                ctx.startActivity(new Intent(ctx,DetailHotel.class).putExtra("mal_id",model.mal_id));
             }
         });
     }

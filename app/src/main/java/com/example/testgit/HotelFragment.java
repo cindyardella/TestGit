@@ -57,11 +57,12 @@ public class HotelFragment extends Fragment {
                 try {
                     JSONArray results = (JSONArray) response.get("results");
                     for(int i=0;i<results.length();i++) {
+                        Model model = new Model();
                         JSONObject jsonObject = results.getJSONObject(i);
                         String title = jsonObject.getString("title");
                         String image_url = jsonObject.getString("image_url");
                         int mal_id = jsonObject.getInt("mal_id");
-                        models.add(new Model(mal_id, title, image_url));
+                        models.add(model);
                     }
                     adapterData.notifyDataSetChanged();
                 } catch (Exception w) {
