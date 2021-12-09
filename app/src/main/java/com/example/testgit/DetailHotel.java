@@ -1,4 +1,4 @@
- package com.example.testgit;
+package com.example.testgit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,49 +14,37 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.testgit.AppDatabase;
+import com.example.testgit.Model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class DetailHotel extends AppCompatActivity {
-
+    AppDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_hotel);
         ImageView img = findViewById(R.id.fotoDetail);
         TextView info = findViewById(R.id.infoDetail);
-        final String url1 = "https://api.jikan.moe/v3/search/anime?q=doraemon"+getIntent().getExtras().getInt("mal_id");
-        RequestQueue requestQueue = Volley.newRequestQueue(this);;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url1, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    String information = "";
-                    Glide.with(getBaseContext())
-                            .load(response.getString("image_url"))
-                            .into(img);
-                    information+="Title : "+response.getString("title")+
-                            "\nAiring : "+response.getBoolean("airing")+
-                            "\nSynopsis : "+response.getString("synopsis")+
-                            "\nType : "+response.getString("type")+
-                            "\nEpisodes : "+response.getInt("episodes")+
-                            "\nScore : "+response.getInt("score")+
-                            "\nStart Date : "+response.getString("start_date")+
-                            "\nEnd Date : "+response.getString("end_date")+
-                            "\nMembers : "+response.getInt("members")+
-                            "\nrated : "+response.getString("rated");
-                    info.setText(information);
-                } catch (Exception w) {
-                    Toast.makeText(getBaseContext(), w.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getBaseContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-        requestQueue.add(jsonObjectRequest);
+        database = AppDatabase.getInstance(this);
+        Model model = database.ModelDao().getModel(getIntent().getExtras().getInt("mal_id"));
+        String information = "";
+        Glide.with(getBaseContext())
+                .load(model.image_url)
+                .into(img);
+        information+="Title : "+model.title+
+                "\nAiring : "+model.airing+
+                "\nSynopsis : "+model.synopsis+
+                "\nType : "+model.type+
+                "\nEpisodes : "+model.episodes+
+                "\nScore : "+model.score+
+                "\nStart Date : "+model.start_date+
+                "\nEnd Date : "+model.end_date+
+                "\nMembers : "+model.members+
+                "\nrated : "+model.rated;
+        info.setText(information);
+
     }
 }
